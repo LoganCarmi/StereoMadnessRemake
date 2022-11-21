@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 503, y: 492}
   m_MaxSize: {x: 18097, y: 14042}
   vertical: 0
-  controlID: 103
+  controlID: 21
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 104
+  controlID: 22
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 105
+  controlID: 23
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -317,21 +317,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Packages/com.unity.timeline
+    - Assets
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Packages/com.unity.timeline
+  - Assets
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: D:\Cours\Unity\StereoMadnessRemake\StereoMadnessRemake
+  m_LastProjectPath: D:\Cours\Unity\StereoMadnessRemake
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 185.4}
-    m_SelectedIDs: ce5f0000
-    m_LastClickedID: 24526
+    scrollPos: {x: 0, y: 79}
+    m_SelectedIDs: a45f0000
+    m_LastClickedID: 24484
     m_ExpandedIDs: 00000000a45f000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
