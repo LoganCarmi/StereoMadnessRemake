@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6880438835935568021}
   - component: {fileID: 6880438835935568020}
   - component: {fileID: 6880438835935568018}
+  - component: {fileID: 3837572226504286283}
   m_Layer: 0
   m_Name: ClassicSpike
   m_TagString: Untagged
@@ -127,3 +128,16 @@ PolygonCollider2D:
       - {x: 0.22999999, y: -0.07}
       - {x: 0.45999998, y: -0.51}
       - {x: -0.45999998, y: -0.51}
+--- !u!114 &3837572226504286283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6880438835935568022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d31a6d538ceab0e4b938bcf578a121a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: e9b815e9c1b09dd4eb9eeb5220250af8, type: 3}

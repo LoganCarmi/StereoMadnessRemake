@@ -6,11 +6,13 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D player;
     public float jumpSpeed = 8f;
+    public float playerSpeed;
 
     public Transform groundCheck;
     public float groundCheckRadius;
     public LayerMask groundLayer;
     private bool isGrounded;
+    Vector2 position;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +33,9 @@ public class PlayerMovement : MonoBehaviour
         transform.position = position;
 
         */
-
+        position = transform.position;
+        position.x = position.x + playerSpeed * Time.deltaTime;
+        transform.position = position;
 
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
