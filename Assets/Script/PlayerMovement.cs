@@ -7,12 +7,14 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D player;
     public float jumpSpeed = 8f;
     public float playerSpeed;
+    public float rotationSpeed;
 
     public Transform groundCheck;
     public float groundCheckRadius;
     public LayerMask groundLayer;
     private bool isGrounded;
     Vector2 position;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -23,16 +25,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-        Vector2 position = transform.position;
-        position.x = position.x + 7.0f * horizontal * Time.deltaTime;
-        position.y = position.y + 10.0f * vertical * Time.deltaTime;
-        transform.position = position;
-
-        */
         position = transform.position;
         position.x = position.x + playerSpeed * Time.deltaTime;
         transform.position = position;
@@ -42,9 +34,10 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded) {
             player.velocity = new Vector2(player.velocity.x, jumpSpeed);
         }
+        if (!isGrounded) {
+            // transform.Rotate(Vector3.back * rotationSpeed);
+            transform.RotateAround(transform.position, Vector3.back, rotationSpeed * Time.deltaTime);
+        }
 
     }
-
-
-
 }

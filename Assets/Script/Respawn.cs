@@ -5,12 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class Respawn : MonoBehaviour
 {
-    AudioSource audioSource;
-    public AudioClip clip;
+    private AudioSource _audioSource;
     // Start is called before the first frame update
     void Start()
     {
-        
+        _audioSource = GetComponent<AudioSource>();
+        if (_audioSource == null) {
+            Debug.Log("Audio Source is Null");
+        }
     }
 
     // Update is called once per frame
@@ -19,10 +21,11 @@ public class Respawn : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D col)
     {
-        Time.timeScale = 0;
-        audioSource.PlayOneShot(clip, 1.0f);
+        // SoundManager.Play(audio, clip); 
+        // NGUITools.PlaySound(clip, 1, 1);
+        // audioSource.PlayOneShot(clip, 1.0f);
         SceneManager.LoadScene("Level");
     }
 }
