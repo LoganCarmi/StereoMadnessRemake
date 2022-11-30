@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float rotationSpeed;
 
     public Transform groundCheck;
+    public Transform sprite;
     public float groundCheckRadius;
     public LayerMask groundLayer;
     private bool isGrounded;
@@ -31,12 +32,23 @@ public class PlayerMovement : MonoBehaviour
 
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded) {
-            player.velocity = new Vector2(player.velocity.x, jumpSpeed);
-        }
-        if (!isGrounded) {
+        if (isGrounded) {
+
+            Vector3 spriteRotation = sprite.rotation.eulerAngles;
+            spriteRotation.z = Mathf.Round(spriteRotation.z / 90) * 90;
+            sprite.rotation = Quaternion.Euler(spriteRotation);
+
+
+            if (Input.GetKeyDown(KeyCode.Space)) {
+
+                player.velocity = new Vector2(player.velocity.x, jumpSpeed);
+
+            }
+
+        } else {
+            sprite.Rotate(Vector3.back * rotationSpeed);
             // transform.Rotate(Vector3.back * rotationSpeed);
-            transform.RotateAround(transform.position, Vector3.back, rotationSpeed * Time.deltaTime);
+            // transform.RotateAround(transform.position, Vector3.back, rotationSpeed * Time.deltaTime);
         }
 
     }
