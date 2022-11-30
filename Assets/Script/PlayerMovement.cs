@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (isGrounded) {
 
+            Physics2D.gravity = new Vector2(0, -9.81f);
             Vector3 spriteRotation = sprite.rotation.eulerAngles;
             spriteRotation.z = Mathf.Round(spriteRotation.z / 90) * 90;
             sprite.rotation = Quaternion.Euler(spriteRotation);
@@ -42,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space)) {
 
                 player.velocity = new Vector2(player.velocity.x, jumpSpeed);
+                Physics2D.gravity = new Vector2(0, -12f);
 
             }
 
