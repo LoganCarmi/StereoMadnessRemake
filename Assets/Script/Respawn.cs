@@ -23,9 +23,9 @@ public class Respawn : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        // SoundManager.Play(audio, clip); 
-        // NGUITools.PlaySound(clip, 1, 1);
-        // audioSource.PlayOneShot(clip, 1.0f);
+        PlayerController controller = col.GetComponent<PlayerController>();
+        Debug.Log(controller.nbCoin);
+        controller.nbCoin = 0;
         SceneManager.LoadScene("Level");
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D player;
     public float jumpSpeed = 8f;
@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundLayer;
     private bool isGrounded;
     Vector2 position;
+
+    public int nbCoin = 0;
     
 
     // Start is called before the first frame update
@@ -49,8 +51,6 @@ public class PlayerMovement : MonoBehaviour
 
         } else {
             sprite.Rotate(Vector3.back * rotationSpeed);
-            // transform.Rotate(Vector3.back * rotationSpeed);
-            // transform.RotateAround(transform.position, Vector3.back, rotationSpeed * Time.deltaTime);
         }
 
     }
