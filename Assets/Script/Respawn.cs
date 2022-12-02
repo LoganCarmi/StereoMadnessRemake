@@ -24,7 +24,6 @@ public class Respawn : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         PlayerController controller = col.GetComponent<PlayerController>();
-        Debug.Log(controller.nbCoin);
         controller.nbCoin = 0;
         SceneManager.LoadScene("Level");
     }
