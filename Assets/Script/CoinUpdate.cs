@@ -10,6 +10,7 @@ public class CoinUpdate : MonoBehaviour
     
     void Update() {
 
+        // Update du Text pour afficher les coins
         Text.text = "Coins : " + pcPlayerController.nbCoin;
     
     }
