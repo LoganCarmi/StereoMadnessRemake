@@ -61,12 +61,12 @@ public class PlayerController : MonoBehaviour
             Physics2D.gravity = new Vector2(0, 0);
 
             if (Input.GetKeyDown(KeyCode.UpArrow)) {
-                player.velocity = new Vector2(player.velocity.x, jumpSpeed);
+                player.velocity = new Vector2(player.velocity.x, jumpSpeed / 3);
             }
 
 
             if (Input.GetKeyDown(KeyCode.DownArrow)) {
-                player.velocity = new Vector2(player.velocity.x, -jumpSpeed);
+                player.velocity = new Vector2(player.velocity.x, -jumpSpeed / 3);
             }
         }
 
