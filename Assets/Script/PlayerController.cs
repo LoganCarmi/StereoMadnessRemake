@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
     Vector2 position;
 
+    public bool bIsShip = false;
+
     public int nbCoin = 0;
     
 
@@ -32,25 +34,40 @@ public class PlayerController : MonoBehaviour
         position.x = position.x + playerSpeed * Time.deltaTime;
         transform.position = position;
 
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
-        if (isGrounded) {
+        if (!bIsShip) {
+            isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
-            Physics2D.gravity = new Vector2(0, -9.81f);
-            Vector3 spriteRotation = sprite.rotation.eulerAngles;
-            spriteRotation.z = Mathf.Round(spriteRotation.z / 90) * 90;
-            sprite.rotation = Quaternion.Euler(spriteRotation);
+            if (isGrounded) {
+
+                Physics2D.gravity = new Vector2(0, -9.81f);
+                Vector3 spriteRotation = sprite.rotation.eulerAngles;
+                spriteRotation.z = Mathf.Round(spriteRotation.z / 90) * 90;
+                sprite.rotation = Quaternion.Euler(spriteRotation);
 
 
-            if (Input.GetKeyDown(KeyCode.Space)) {
+                if (Input.GetKeyDown(KeyCode.Space)) {
 
-                player.velocity = new Vector2(player.velocity.x, jumpSpeed);
-                Physics2D.gravity = new Vector2(0, -12f);
+                    player.velocity = new Vector2(player.velocity.x, jumpSpeed);
+                    Physics2D.gravity = new Vector2(0, -12f);
 
+                }
+
+            } else {
+                sprite.Rotate(Vector3.back * rotationSpeed);
             }
 
         } else {
-            sprite.Rotate(Vector3.back * rotationSpeed);
+            Physics2D.gravity = new Vector2(0, 0);
+
+            if (Input.GetKeyDown(KeyCode.UpArrow)) {
+                player.velocity = new Vector2(player.velocity.x, jumpSpeed);
+            }
+
+
+            if (Input.GetKeyDown(KeyCode.DownArrow)) {
+                player.velocity = new Vector2(player.velocity.x, -jumpSpeed);
+            }
         }
 
     }
